@@ -1,0 +1,42 @@
+﻿@using Ictshop.Models;
+@model List<Sanpham>
+<div class="p-3 mb-2 bg-secondary text-white"><h3 style="padding-left:30px"> SAMSUNG </h3></div>
+<div class="flex-container">
+
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 col-sm-6">
+            <a href="@Url.Action("xemchitiet", new {@Masp=item.Masp })">
+                <img src=@item.Anhbia class="img-responsive" alt="" width="400" height="400" />
+            </a>
+            <center>
+                <h3> @item.Tensp</h3>
+                <h3 class="price">Giá: @item.Giatien</h3>
+                <br />
+                @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = item.Masp, @strURL = Request.Url.ToString() }))
+                {
+                    <input class="cart_btn" type="submit" value="Mua hàng" id="bgnGioHang" />
+
+                }
+
+                @*<h4> <a href="@Url.Action("xemchitiet", new {@Masp=item.Masp })">Xem chi tiết</a></h4>*@
+
+
+            </center>
+
+        </div>
+    }
+
+
+    @*<div class="col-md-3 col-sm-6">
+            <img src="~/HinhanhSP/ip3.jpg" class="img-responsive" alt="" />
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <img src="~/HinhanhSP/ip3.jpg" class="img-responsive" alt="" />
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <img src="~/HinhanhSP/ip3.jpg" class="img-responsive" alt="" />
+        </div>*@
+</div>
+
+

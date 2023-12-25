@@ -1,0 +1,34 @@
+﻿@using Ictshop.Models;
+@model List<Hangsanxuat>
+<style>
+    .btn {
+        min-width: 100px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        border: 1px solid #2F4F4F;
+        font-size:  15px;
+      
+    }
+    .bg-secondary {
+        display:flex;
+        flex-direction:row;
+        justify-content:flex-start;
+       
+    }
+    .card-title {
+        color: #2F4F4F;
+        font-weight:bolder;
+    }
+
+</style>
+
+<br />
+<div class="bg-secondary text-white">
+    <div class="row" style="display:flex">
+        @foreach (var item in Model)
+        {
+            <div  style="margin:2rem;">
+                <button class="btn"><a href="#" class="card-title"> @item.Tenhang</a></button>
+            </div>
+        }
+    </div>
+</div>
